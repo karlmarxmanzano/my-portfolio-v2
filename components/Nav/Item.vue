@@ -1,5 +1,5 @@
 <template>
-  <li class="block py-3 pl-5 pr-32 xl:p-0 hover:primary-color primary-color">
+  <li class="block py-3 pl-5 pr-32 cursor-pointer xl:p-0 hover:!primary-color">
     <slot />
   </li>
 </template>

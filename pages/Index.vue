@@ -1,18 +1,26 @@
 <template>
   <div>
-    <div class="flex flex-col justify-center px-6 mx-auto sm:px-0 sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
-      <div class="relative flex flex-col justify-center min-h-screen">
-        <div class="mb-4 text-4xl lg:text-5xl">👋</div>
-
-        <h1 class="mb-8 text-5xl font-bold sm:text-6xl lg:text-7xl dark:text-blue-100">I can make your ideas real in <br class="block sm:hidden"> <span class="text-primary dark:text-accent">the web!</span></h1>
-
-        <p class="mb-8 text-sm sm:text-base text-light md:w-6/12 text-break dark:text-light-light">
-          I'm a web developer based in Philippines Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-
-        <call-to-action :is-rounded="true" class="self-start ">Get in touch</call-to-action>
-
-
+    <div class="">
+      <div class="container grid max-w-5xl grid-cols-3 px-6 mx-auto sm:px-0 h-[800px]">
+        <div class="flex items-center col-span-2">
+          <div class="">
+            <p class="mb-6 text-5xl">👋</p>
+            
+            <h1 class="mb-6 text-6xl font-bold font-primary primary-color">Karl Marx Manzano</h1>
+            
+            <p class="mb-8 font-medium text-gray-600 break-words font-secondary max-w-[600px]">
+              I'm a full stack web developer based in the Philippines with almost 5 yrs of experience building exceptional digital solutions for companies or individuals. I love to take challenging tasks and am constantly learning on the latest tech trends. 
+            </p>
+            
+            <p class="text-gray-600 font-secondary">
+              Let's work together! <br class="block sm:hidden">Download <a href="#" class="px-2 py-1 ml-1 leading-10 transition-all border border-gray-500 border-dashed rounded cursor-pointer text-primary border-primary-light sm:leading-normal hover:bg-primary hover:text-white dark:border-light-light dark:text-light-light dark:hover:bg-light-light dark:hover:text-night-dark">resume</a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-end cols-span-1">
+          <img class="border border-[#003C8F] w-full h-auto" src="~/assets/images/karl.jpg" alt="Karl Marx Manzano">
+        </div>
       </div>
     </div>
 
@@ -47,3 +55,18 @@
     </app-section>
   </div>
 </template>
+
+<style>
+  .img {
+    animation: morph 8s ease-in-out infinite;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid #2d2e32;
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    height: 35rem;
+    position: relative;
+    transition: all 1s ease-in-out;
+    width: 35rem;
+  }
+</style>
