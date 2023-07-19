@@ -3,8 +3,8 @@
     title: { type: String, required: true },
     image: { type: String },
     description: { type: String, required: true },
-    link: { type: String, required: true },
-    github: { type: String, required: true },
+    link: { type: String },
+    github: { type: String },
     light: { type: Boolean, default: true }
   })
 </script>

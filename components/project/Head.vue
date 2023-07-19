@@ -1,8 +1,8 @@
 <script setup lang="ts">
   const props = defineProps({
     title: { type: String, required: true },
-    link: { type: String, required: true },
-    github: { type: String, required: true },
+    link: { type: String },
+    github: { type: String },
   })
 </script>
 
@@ -13,10 +13,10 @@
     </div>
     
     <div class="flex items-center gap-x-2">
-      <a :href="props.link" target="_blank">
+      <a :href="props.link" target="_blank" v-if="props.link">
         <IconOpenInNew />
       </a>
-      <a :href="props.github" target="_blank">
+      <a :href="props.github" target="_blank" v-if="props.github">
         <IconGithub />
       </a>
     </div>

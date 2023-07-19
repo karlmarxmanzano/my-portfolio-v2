@@ -5,7 +5,7 @@
         <Nav>
           <NavItem>Home</NavItem>
           <NavItem>About</NavItem>
-          <NavItem>Projects</NavItem>
+          <NavItem>Portfolio</NavItem>
         </Nav>
         
         <IconLogo />

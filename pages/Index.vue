@@ -22,21 +22,6 @@
       </div>
     </div>
     
-    <!-- <section class="py-16 bg-gray-50">
-      <div class="container max-w-5xl mx-auto">
-        <div class="flex flex-col items-start justify-between mb-12 space-y-4 lg:space-y-0 lg:flex-row">
-          <div class="basis-3/4">
-            <span class="block mb-2 font-semibold uppercase primary-color font-secondary">
-              Experience
-            </span>
-            <h2 class="text-4xl font-bold font-primary">
-              Improving by working in a real-world projects
-            </h2>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    
     <SectionCard 
       title="Portfolio" 
       description="Some projects I worked on." 
@@ -44,11 +29,10 @@
     >
       <template v-slot:content>
         <ProjectCard 
-          title="Isuzuphil.com"
+          title="Isuzuphil.com.ph"
           image="../assets/images/isuzuphil.png"
-          description="This is a test description."
-          link="https://example.com/"
-          github="https://github.com/"
+          description="Revamping their old site into a more modern design and implementing new features to make potential buyers updated, provide online support, and a virtual showroom."
+          link="https://www.isuzuphil.com/"
         >
           <template v-slot:stack-icons>
             <IconLaravel />
@@ -62,9 +46,8 @@
         <ProjectCard 
           title="Ritemed.com.ph"
           image="../assets/images/ritemed.png"
-          description="This is a test description."
-          link="https://example.com/"
-          github="https://github.com/"
+          description="Helping users on their medical needs by improving the site UI/UX design and features to provide smoother user experience."
+          link="https://www.ritemed.com.ph/"
         >
           <template v-slot:stack-icons>
             <IconCodeIgniter />
@@ -76,11 +59,9 @@
         </ProjectCard>
         
         <ProjectCard 
-          title="Unistar"
+          title="Unistar Credit and Finance Corp."
           image="../assets/images/unistar.png"
-          description="This is a test description."
-          link="https://example.com/"
-          github="https://github.com/"
+          description="Making a loan fast, easy, and convenient."
         >
           <template v-slot:stack-icons>
             <IconLaravel />
@@ -94,9 +75,8 @@
         <ProjectCard 
           title="BuhayHW.com"
           image="../assets/images/buhayhw.png"
-          description="This is a test description."
-          link="https://example.com/"
-          github="https://github.com/"
+          description="Providing information about IV Therapy types and its benefits. Allowing users to book for an appointent with a physician."
+          link="https://buhayhw.com/"
         >
           <template v-slot:stack-icons>
             <IconWordpress />
@@ -110,13 +90,13 @@
     <SectionCard 
       title="Portfolio" 
       description="Other Significant Projects."
-      cols="3"
+      :cols=3
     >
       <template v-slot:content>
         <ProjectCard
           title="Trello Clone"
           image="../assets/images/trello-clone.png"
-          description="This is a test description."
+          description="A trello clone built with VueJs, TailwindCSS, and SaSS."
           link="https://xenodochial-brahmagupta-453531.netlify.app/"
           github="https://github.com/karlmarxmanzano/trello-clone"
           :light="false"
@@ -130,7 +110,8 @@
         
         <ProjectCard
           title="Personal Portfolio"
-          description="This is a test description."
+          image="../assets/images/portfolio.png"
+          description="My Personal Portfolio to showcase my works and skills with Nuxt, TailwindCSS, and mobile-first responsive design."
           link="https://example.com/"
           github="https://github.com/"
           :light="false"
@@ -144,7 +125,7 @@
         
         <ProjectCard
           title="Multi-tenancy Web App"
-          description="This is a test description."
+          description="A simple multi-tenancy web app showcasing on how to handle a single and multiple subdomains and databases."
           link="https://example.com/"
           github="https://github.com/"
           :light="false"
@@ -157,8 +138,8 @@
         </ProjectCard>
         
         <ProjectCard
-          title="Admin"
-          description="This is a test description."
+          title="CRM"
+          description="A basic CRM to manage clients and employees using TALL stack."
           link="https://example.com/"
           github="https://github.com/"
           :light="false"
@@ -172,19 +153,42 @@
         </ProjectCard>
         
         <ProjectCard
-          title="Test"
-          description="This is a test description."
-          link="https://example.com/"
+          title="ToDo App"
+          description="A Flutter and Firebase app to track personal tasks."
           github="https://github.com/"
           :light="false"
         >
           <template v-slot:stack-icons>
-            <IconLaravel />
-            <IconOctoberCMS />
-            <IconBootstrap />
-            <IconJQuery />
-            <IconSass />
+            <IconFlutter />
+            <IconFirebase />
           </template>
+        </ProjectCard>
+      </template>
+    </SectionCard>
+    
+    <SectionCard 
+      title="Services" 
+      description="Let's work together!"
+      :cols=3
+      :light="false"
+    >
+      <template v-slot:content>
+        <ProjectCard
+          title="Front-end Development"
+          description="Improving, revamping, or building from scratch your UI/UX design from Figma/AdobeXD to a real world application using the latest technology such as HTML, JavScript, Vue, Nuxt, or SaSS."
+        >
+        </ProjectCard>
+        
+        <ProjectCard
+          title="Back-end Development"
+          description="Building from scratch or optimizating your back-end service to provide reliable and faster output. Designing MySQL database to meet standard designs."
+        >
+        </ProjectCard>
+        
+        <ProjectCard
+          title="API Integration and Development"
+          description="3rd Party API integrations into your existing website or engineering your own API service."
+        >
         </ProjectCard>
       </template>
     </SectionCard>
@@ -192,16 +196,27 @@
     <SectionCard 
       title="About Me" 
       description="A Passionate Full Stack Web Developer."
-      cols="1"
+      :cols=1
       :light="false"
     >
       <template v-slot:content>
-        <div>
-          Hi, My name is Karl. I have impressive skills in PHP, Laravel, Vue, TailWind, Bootstrap, and ScSS.
+        <div class="flex flex-col gap-y-6">
+          <p class="text-gray-500 font-secondary">
+            Hi, My name is <span class="font-bold font-primary primary-color">Karl</span>. I do web development, maintenance, optimization, and API integrations providing top-notch digital solutions using latest technology such as Laravel and VueJs/Nuxt.
+            I am very curios and am constantly learning on the latest technologies. Currently, I am working as a freelancer to explore different tech stacks and learn from other environments.
+          </p>
           
-          I am learning Flutter for mobile development recently to provide more capabality as a front end developer. 
+          <p class="text-gray-500 font-secondary">I am based in La Union, Philippines but work with clients around the globe romotely.</p>
           
-          Here is some list of technologies that Ive been working on the past:
+          <p class="text-gray-500 font-secondary">Here is some list of technologies that Ive been working recently:</p>
+          <ul class="text-gray-500 font-secondary">
+            <li>Laravel</li>
+            <li>VueJs</li>
+            <li>Nuxt</li>
+            <li>TailwindCSS</li>
+            <li>Bootstrap</li>
+            <li>Flutter</li>
+          </ul>
         </div>
       </template>
     </SectionCard>

@@ -5,13 +5,19 @@
       
       <Nav>
         <NavItem>
-          <IconGithub />
+          <a href="https://github.com/karlmarxmanzano" target="_blank">
+            <IconGithub />
+          </a>
         </NavItem>
         <NavItem>
-          <IconGmail />
+          <a href="mailto:karlmarxmanzano@gmail.com">
+            <IconGmail />
+          </a>
         </NavItem>
         <NavItem>
-          <IconLinkedIn />
+          <a href="https://www.linkedin.com/in/karl-marx-manzano-9331b8209/" target="_blank">
+            <IconLinkedIn />
+          </a>
         </NavItem>
       </Nav>
     </div>

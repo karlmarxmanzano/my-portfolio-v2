@@ -12,7 +12,7 @@
 
       <div
         class="flex items-center h-8 p-1 duration-300 ease-in-out rounded-full cursor-pointer w-14 bg-night-light dark:bg-primary-light"
-        :class="{'bg-primary-light': toggleActive, 'bg-night-light': !toggleActive}"
+        :class="{'bg-slate-800': toggleActive, 'bg-[#003C8F]': !toggleActive}"
       >
         <div class="duration-300 ease-in-out transform bg-white rounded-full shadow-md w-7 h-7" :class="{ 'translate-x-5': toggleActive}"></div>
       </div>
