@@ -8,7 +8,15 @@
     cols: { type: Number || String, default: 2 }
   })
   
-  const column = computed(() => `lg:grid-cols-${props.cols}`)
+  const column = computed(() => {
+    switch (props.cols) {
+      case 3:
+        return 'lg:grid-cols-3'
+      
+      default:
+        return 'lg:grid-cols-2'
+    }
+  })
 </script>
 
 <template>
