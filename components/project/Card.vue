@@ -15,12 +15,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl border-opacity-20 min-h-[310px] mb-7 sm:mb-5 lg:mb-10"
-    :class="[
-      props.dark
-        ? 'bg-primary bg-slate-20 '
-        : 'bg-white dark:bg-slate-800 dark:border-slate-800 dark:shadow-slate-800',
-    ]"
+    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl min-h-[310px] mb-7 sm:mb-5 lg:mb-10 dark:bg-slate-800 dark:border-slate-800 dark:shadow-slate-800"
+    :class="[props.dark ? 'bg-slate-200 border border-slate-200' : 'bg-white ']"
   >
     <div class="flex items-center justify-between mb-5">
       <div

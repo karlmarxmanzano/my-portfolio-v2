@@ -26,10 +26,11 @@ const column = computed(() => {
 
 <template>
   <!-- dark:bg-[#0f172af9] -->
+  <!--  -->
   <section
-    class="py-16 bg-primary bg-opacity-10 dark:text-slate-300 dark:bg-[#0f172af9]"
+    class="py-16 lg:py-20 dark:text-slate-300 dark:bg-[#0f172af9]"
     :class="[
-      props.dark ? 'bg-primary bg-opacity-10' : 'bg-white dark:bg-slate-900',
+      props.dark ? 'bg-primary bg-opacity-10 dark:bg-slate-900' : 'bg-white',
     ]"
   >
     <AppContainer>

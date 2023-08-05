@@ -1,5 +1,5 @@
 <template>
-  <section class="dark:bg-slate-900">
+  <section class="bg-slate-200 dark:bg-slate-900">
     <AppContainer class="grid py-16 lg:grid-cols-2">
       <div class="mb-10 lg:order-2 lg:mb-0">
         <img
@@ -24,7 +24,7 @@
     </AppContainer>
   </section>
 
-  <AppSection title="👋" description="About" :dark="true">
+  <AppSection title="👋" description="About">
     <p class="mb-6 text-sm font-secondary indent-8 sm:tracking-wide">
       Hello! I'm Karl Marx Manzano, a full stack web developer with more than
       5yrs of professional experience in building exceptional web solutions for
@@ -52,6 +52,7 @@
     title="Portfolio"
     description="Some projects I worked on."
     :cols="1"
+    :dark="true"
   >
     <FeaturedProject
       title="Isuzuphil.com.ph"
@@ -68,7 +69,7 @@
         <IconSass />
       </template>
     </FeaturedProject>
-
+    <!--  -->
     <FeaturedProject
       title="Ritemed.com.ph"
       imageUrl="../assets/images/ritemed.png"
@@ -120,7 +121,6 @@
   <AppSection
     title="Portfolio"
     description="Other Significant Projects."
-    :dark="true"
     :cols="2"
   >
     <Swiper
@@ -147,7 +147,7 @@
           description="A trello clone built with VueJs, TailwindCSS, and SaSS."
           link="https://xenodochial-brahmagupta-453531.netlify.app/"
           githubLink="https://github.com/karlmarxmanzano/trello-clone"
-          :light="false"
+          :dark="true"
         >
           <template #stack-icons>
             <IconVue />
@@ -164,7 +164,7 @@
           description="My Personal Portfolio to showcase my works and skills with Nuxt, TailwindCSS, and mobile-first responsive design."
           link="https://example.com/"
           githubLink="https://github.com/"
-          :light="false"
+          :dark="true"
         >
           <template #:stack-icons>
             <IconNuxt />
@@ -180,7 +180,7 @@
           description="A simple multi-tenancy web app showcasing on how to handle a single and multiple subdomains and databases."
           link="https://example.com/"
           githubLink="https://github.com/"
-          :light="false"
+          :dark="true"
         >
           <template #stack-icons>
             <IconLaravel />
@@ -196,7 +196,7 @@
           description="A basic CRM to manage clients and employees using TALL stack."
           link="https://example.com/"
           githubLink="https://github.com/"
-          :light="false"
+          :dark="true"
         >
           <template #stack-icons>
             <IconTailwindCSS />
@@ -212,7 +212,7 @@
           title="ToDo App"
           description="A Flutter and Firebase app to track personal tasks."
           githubLink="https://github.com/"
-          :light="false"
+          :dark="true"
         >
           <template #stack-icons>
             <IconFlutter />
@@ -223,7 +223,12 @@
     </Swiper>
   </AppSection>
 
-  <AppSection title="Services" description="Let's work together!" :cols="2">
+  <AppSection
+    title="Services"
+    description="Let's work together!"
+    :cols="2"
+    :dark="true"
+  >
     <template #content>
       <ServiceCard
         title="Front End Development"

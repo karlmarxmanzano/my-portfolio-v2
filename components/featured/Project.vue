@@ -51,11 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
 
     <div class="order-1">
       <img
-        class="shadow-[10px_10px_0_#1EC9ED] object-cover dark:shadow-[10px_10px_0_#1E293B]"
-        :class="{
-          'shadow-[-10px_-10px_0_#1EC9ED] dark:shadow-[10px_10px_0_#1E293B]':
-            props.reverse,
-        }"
+        class="shadow-[10px_10px_0_#94A3B8] object-cover dark:shadow-[10px_10px_0_#1E293B]"
         :src="props.imageUrl"
         :alt="props.title"
       />
