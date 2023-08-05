@@ -1,23 +1,62 @@
-<template>
-  <div class="px-6 sm:px-0 sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto py-8 md:py-16 lg:py-24 relative">
-    <p v-if="title" class="section-title text-center text-primary uppercase tracking-wider sm:tracking-widest font-bold text-2xl sm:text-3xl mb-6 md:mb-12 lg:mb-20 dark:text-accent">{{ title }}</p>
+<script setup lang="ts">
+import { computed } from 'vue';
 
-    <slot></slot>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'AppSection',
-  props: {
-    title: {
-      type: String,
-      required: false
-    }
-  }
+interface Props {
+  title?: string;
+  description?: string;
+  dark: boolean;
+  cols: number;
 }
+
+const props = withDefaults(defineProps<Props>(), {
+  dark: false,
+  cols: 2,
+});
+
+const column = computed(() => {
+  switch (props.cols) {
+    case 3:
+      return 'lg:grid-cols-3';
+
+    default:
+      return 'lg:grid-cols-2';
+  }
+});
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <section
+    class="py-16"
+    :class="[props.dark ? 'bg-primary bg-opacity-10' : 'bg-white']"
+  >
+    <AppContainer>
+      <div
+        class="flex flex-col items-start justify-between space-y-4 lg:space-y-0 lg:flex-row"
+        :class="[!props.title || !props.description ? 'mb-10' : 'mb-12']"
+      >
+        <div class="lg:basis-4/5">
+          <span
+            class="block mb-2 font-semibold uppercase text-primary font-secondary"
+            v-if="props.title"
+          >
+            &lt {{ props.title }} /&gt
+          </span>
+          <h2
+            class="text-xl font-bold sm:text-2xl lg:text-3xl font-primary"
+            v-if="props.description"
+          >
+            {{ props.description }}
+          </h2>
+        </div>
+      </div>
 
-</style>
+      <div class="grid grid-cols-1 gap-6" :class="column">
+        <slot name="content"></slot>
+      </div>
+
+      <div class="grid">
+        <slot />
+      </div>
+    </AppContainer>
+  </section>
+</template>

@@ -1,28 +1,53 @@
 <script setup lang="ts">
-  const props = defineProps({
-    title: { type: String, required: true },
-    image: { type: String },
-    description: { type: String, required: true },
-    link: { type: String },
-    github: { type: String },
-    light: { type: Boolean, default: true }
-  })
+interface Props {
+  title: string;
+  imageUrl?: string;
+  description: string;
+  link?: string;
+  githubLink?: string;
+  dark: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  dark: false,
+});
 </script>
 
 <template>
-  <div class="flex flex-col h-auto p-6 rounded-2xl" :class="[props.light ? 'bg-white' : 'bg-gray-50']">
-    <ProjectHead :title="props.title" :link="props.link" :github="props.github"></ProjectHead>
-    
-    <div class="relative w-auto mb-5 overflow-hidden h-100 rounded-xl" v-if="props.image">
-      <img :src="props.image" :alt="props.title" class="object-cover w-full h-full max-h-[220px]">
+  <div
+    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl border-opacity-20 min-h-[310px]"
+    :class="[props.dark ? 'bg-primary bg-slate-20' : 'bg-white']"
+  >
+    <div class="flex items-center justify-between mb-5">
+      <div
+        class="font-bold tracking-tight uppercase truncate text-primary font-primary"
+      >
+        {{ props.title }}
+      </div>
+
+      <div class="flex items-center gap-x-2">
+        <a :href="props.link" target="_blank" v-if="props.link">
+          <IconOpenInNew />
+        </a>
+        <a :href="props.githubUrl" target="_blank" v-if="props.githubUrl">
+          <IconGithub />
+        </a>
+      </div>
     </div>
-    
-    <div class="text-sm text-gray-500 text-start font-secondary">
-        {{ props.description }}
+
+    <div
+      class="relative w-auto mb-5 overflow-hidden h-100"
+      v-if="props.imageUrl"
+    >
+      <img
+        :src="props.imageUrl"
+        :alt="props.title"
+        class="object-cover w-full h-full max-h-[220px]"
+      />
     </div>
-    
-    <div class="flex items-center pt-6 gap-x-4">
-      <slot name="stack-icons"></slot>
+
+    <div class="text-sm font-secondary">
+      {{ props.description }}
     </div>
   </div>
 </template>

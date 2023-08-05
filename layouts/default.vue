@@ -1,7 +1,7 @@
 <template>
   <div class="dark:bg-night">
     <AppHeader />
-    <slot/>
+    <slot />
     <AppFooter />
   </div>
 </template>

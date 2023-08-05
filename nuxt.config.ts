@@ -8,14 +8,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: [
-    '@nuxtjs/google-fonts'
-  ],
+  modules: ['@nuxtjs/google-fonts'],
   googleFonts: {
     families: {
       'JetBrains Mono': true,
-      Poppins: true
+      Poppins: true,
     },
-    download: true
-  }
-})
+    download: true,
+  },
+});
