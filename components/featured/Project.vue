@@ -26,7 +26,9 @@ const props = withDefaults(defineProps<Props>(), {
       :class="{ '!order-2': props.reverse }"
     >
       <div class="flex items-center justify-between mb-2 mt-7 lg:mt-0">
-        <div class="font-bold uppercase truncate text-primary font-primary">
+        <div
+          class="font-bold uppercase truncate text-primary font-primary dark:text-slate-200"
+        >
           {{ props.title }}
         </div>
 
@@ -36,21 +38,24 @@ const props = withDefaults(defineProps<Props>(), {
               <ArrowTopRightOnSquareIcon class="w-5 h-5" />
             </a>
             <a :href="props.github" target="_blank" v-if="props.github">
-              <IconGithub />
+              <IconGithub class="dark:text-slate-300" />
             </a>
           </div>
         </div>
       </div>
 
-      <div class="text-sm font-secondary">
+      <div class="text-sm font-secondary dark:text-slate-400">
         {{ props.description }}
       </div>
     </div>
 
     <div class="order-1">
       <img
-        class="shadow-[10px_10px_0_#1EC9ED] object-cover"
-        :class="{ 'shadow-[-10px_-10px_0_#1EC9ED]': props.reverse }"
+        class="shadow-[10px_10px_0_#1EC9ED] object-cover dark:shadow-[10px_10px_0_#1E293B]"
+        :class="{
+          'shadow-[-10px_-10px_0_#1EC9ED] dark:shadow-[10px_10px_0_#1E293B]':
+            props.reverse,
+        }"
         :src="props.imageUrl"
         :alt="props.title"
       />

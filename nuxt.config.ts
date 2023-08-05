@@ -8,12 +8,18 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@nuxtjs/google-fonts'],
+  modules: ['@nuxtjs/google-fonts', 'nuxt-swiper', '@nuxtjs/color-mode'],
   googleFonts: {
     families: {
       'JetBrains Mono': true,
       Poppins: true,
     },
     download: true,
+  },
+  swiper: {
+    styleLang: 'css',
+  },
+  colorMode: {
+    classSuffix: '',
   },
 });

@@ -1,5 +1,7 @@
 <template>
-  <div class="py-16 border-t border-opacity-20 border-primary">
+  <div
+    class="py-16 border-t border-opacity-20 border-primary dark:bg-[#0f172af9] dark:text-slate-200 dark:border-t-0 dark:border-opacity-0"
+  >
     <AppContainer>
       <div class="flex items-center justify-between">
         <IconLogo />
@@ -7,7 +9,7 @@
         <AppNav class="flex items-center gap-x-6">
           <AppNavItem>
             <a href="https://github.com/karlmarxmanzano" target="_blank">
-              <IconGithub />
+              <IconGithub class="dark:text-slate-300" />
             </a>
           </AppNavItem>
           <AppNavItem>

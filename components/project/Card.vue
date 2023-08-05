@@ -15,12 +15,16 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl border-opacity-20 min-h-[310px]"
-    :class="[props.dark ? 'bg-primary bg-slate-20' : 'bg-white']"
+    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl border-opacity-20 min-h-[310px] mb-7 sm:mb-5 lg:mb-10"
+    :class="[
+      props.dark
+        ? 'bg-primary bg-slate-20 '
+        : 'bg-white dark:bg-slate-800 dark:border-slate-800 dark:shadow-slate-800',
+    ]"
   >
     <div class="flex items-center justify-between mb-5">
       <div
-        class="font-bold tracking-tight uppercase truncate text-primary font-primary"
+        class="font-bold tracking-tight uppercase truncate text-primary font-primary dark:text-slate-200"
       >
         {{ props.title }}
       </div>
@@ -29,8 +33,8 @@ const props = withDefaults(defineProps<Props>(), {
         <a :href="props.link" target="_blank" v-if="props.link">
           <IconOpenInNew />
         </a>
-        <a :href="props.githubUrl" target="_blank" v-if="props.githubUrl">
-          <IconGithub />
+        <a :href="props.githubLink" target="_blank" v-if="props.githubLink">
+          <IconGithub class="dark:text-slate-300" />
         </a>
       </div>
     </div>

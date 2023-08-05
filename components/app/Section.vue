@@ -25,9 +25,12 @@ const column = computed(() => {
 </script>
 
 <template>
+  <!-- dark:bg-[#0f172af9] -->
   <section
-    class="py-16"
-    :class="[props.dark ? 'bg-primary bg-opacity-10' : 'bg-white']"
+    class="py-16 bg-primary bg-opacity-10 dark:text-slate-300 dark:bg-[#0f172af9]"
+    :class="[
+      props.dark ? 'bg-primary bg-opacity-10' : 'bg-white dark:bg-slate-900',
+    ]"
   >
     <AppContainer>
       <div
@@ -36,7 +39,7 @@ const column = computed(() => {
       >
         <div class="lg:basis-4/5">
           <span
-            class="block mb-2 font-semibold uppercase text-primary font-secondary"
+            class="block mb-2 font-semibold uppercase text-primary font-secondary dark:text-slate-500"
             v-if="props.title"
           >
             &lt {{ props.title }} /&gt
@@ -54,7 +57,7 @@ const column = computed(() => {
         <slot name="content"></slot>
       </div>
 
-      <div class="grid">
+      <div>
         <slot />
       </div>
     </AppContainer>

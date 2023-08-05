@@ -1,24 +1,28 @@
 <template>
-  <AppContainer class="grid py-16 lg:grid-cols-2">
-    <div class="mb-10 lg:order-2 lg:mb-0">
-      <img
-        class="w-1/2 mx-auto border rounded-full shadow-lg sm:w-1/3 h-50 border-slate-200 lg:w-[60%] lg:ml-auto lg:mr-0"
-        src="~/assets/images/karl.jpg"
-        alt="Karl Marx Manzano"
-      />
-    </div>
+  <section class="dark:bg-slate-900">
+    <AppContainer class="grid py-16 lg:grid-cols-2">
+      <div class="mb-10 lg:order-2 lg:mb-0">
+        <img
+          class="dark:border-slate-700 w-1/2 mx-auto border rounded-full shadow-lg dark:shadow-slate-700 sm:w-1/3 h-50 border-slate-200 lg:w-[60%] lg:ml-auto lg:mr-0"
+          src="~/assets/images/karl.jpg"
+          alt="Karl Marx Manzano"
+        />
+      </div>
 
-    <div
-      class="mx-auto text-center lg:order-1 lg:text-start lg:my-auto lg:mr-auto lg:ml-0"
-    >
-      <h1 class="text-2xl font-bold font-primary text-primary">
-        Karl Marx Manzano
-      </h1>
-      <span class="text-sm font-secondary"
-        >Laravel | Vue | Nuxt engineer based in the PH</span
+      <div
+        class="mx-auto text-center lg:order-1 lg:text-start lg:my-auto lg:mr-auto lg:ml-0"
       >
-    </div>
-  </AppContainer>
+        <h1
+          class="text-2xl font-bold font-primary text-primary dark:text-slate-200"
+        >
+          Karl Marx Manzano
+        </h1>
+        <span class="text-sm font-secondary dark:text-slate-400"
+          >Laravel | Vue | Nuxt engineer based in the PH</span
+        >
+      </div>
+    </AppContainer>
+  </section>
 
   <AppSection title="👋" description="About" :dark="true">
     <p class="mb-6 text-sm font-secondary indent-8 sm:tracking-wide">
@@ -38,7 +42,7 @@
 
     <a
       href="#"
-      class="py-2 ml-1 text-sm font-semibold text-center uppercase transition-all border rounded-lg cursor-pointer lg:px-4 lg:max-w-fit font-secondary border-primary text-primary border-primary-light hover:bg-primary hover:text-white"
+      class="py-2 ml-1 text-sm font-semibold text-center uppercase transition-all border rounded-lg cursor-pointer dark:hover:text-slate-400 dark:hover:border-slate-400 dark:hover:bg-slate-900 dark:hover:text-400 dark:text-yellow-400 dark:border-yellow-400 lg:px-4 lg:max-w-fit font-secondary border-primary text-primary border-primary-light hover:bg-primary hover:text-white"
     >
       Download resume
     </a>
@@ -119,78 +123,104 @@
     :dark="true"
     :cols="2"
   >
-    <template #content>
-      <ProjectCard
-        title="Trello Clone"
-        imageUrl="../assets/images/trello-clone.png"
-        description="A trello clone built with VueJs, TailwindCSS, and SaSS."
-        link="https://xenodochial-brahmagupta-453531.netlify.app/"
-        github="https://github.com/karlmarxmanzano/trello-clone"
-        :light="false"
-      >
-        <template #stack-icons>
-          <IconVue />
-          <IconTailwindCSS />
-          <IconSass />
-        </template>
-      </ProjectCard>
+    <Swiper
+      :modules="[SwiperPagination, SwiperFreeMode, SwiperAutoplay]"
+      :slides-per-view="1"
+      :loop="true"
+      :pagination="{ clickable: true }"
+      :free-mode="true"
+      :autoplay="{
+        delay: 8000,
+        disableOnInteraction: true,
+      }"
+      :breakpoints="{
+        '1024': {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+      }"
+    >
+      <SwiperSlide>
+        <ProjectCard
+          title="Trello Clone"
+          imageUrl="../assets/images/trello-clone.png"
+          description="A trello clone built with VueJs, TailwindCSS, and SaSS."
+          link="https://xenodochial-brahmagupta-453531.netlify.app/"
+          githubLink="https://github.com/karlmarxmanzano/trello-clone"
+          :light="false"
+        >
+          <template #stack-icons>
+            <IconVue />
+            <IconTailwindCSS />
+            <IconSass />
+          </template>
+        </ProjectCard>
+      </SwiperSlide>
 
-      <ProjectCard
-        title="Personal Portfolio"
-        imageUrl="../assets/images/portfolio.png"
-        description="My Personal Portfolio to showcase my works and skills with Nuxt, TailwindCSS, and mobile-first responsive design."
-        link="https://example.com/"
-        github="https://github.com/"
-        :light="false"
-      >
-        <template #:stack-icons>
-          <IconNuxt />
-          <IconTailwindCSS />
-          <IconSass />
-        </template>
-      </ProjectCard>
+      <SwiperSlide>
+        <ProjectCard
+          title="Personal Portfolio"
+          imageUrl="../assets/images/portfolio.png"
+          description="My Personal Portfolio to showcase my works and skills with Nuxt, TailwindCSS, and mobile-first responsive design."
+          link="https://example.com/"
+          githubLink="https://github.com/"
+          :light="false"
+        >
+          <template #:stack-icons>
+            <IconNuxt />
+            <IconTailwindCSS />
+            <IconSass />
+          </template>
+        </ProjectCard>
+      </SwiperSlide>
 
-      <ProjectCard
-        title="Multi-tenancy Web App"
-        description="A simple multi-tenancy web app showcasing on how to handle a single and multiple subdomains and databases."
-        link="https://example.com/"
-        github="https://github.com/"
-        :light="false"
-      >
-        <template #stack-icons>
-          <IconLaravel />
-          <IconTailwindCSS />
-          <IconSass />
-        </template>
-      </ProjectCard>
+      <SwiperSlide>
+        <ProjectCard
+          title="Multi-tenancy Web App"
+          description="A simple multi-tenancy web app showcasing on how to handle a single and multiple subdomains and databases."
+          link="https://example.com/"
+          githubLink="https://github.com/"
+          :light="false"
+        >
+          <template #stack-icons>
+            <IconLaravel />
+            <IconTailwindCSS />
+            <IconSass />
+          </template>
+        </ProjectCard>
+      </SwiperSlide>
 
-      <ProjectCard
-        title="CRM"
-        description="A basic CRM to manage clients and employees using TALL stack."
-        link="https://example.com/"
-        github="https://github.com/"
-        :light="false"
-      >
-        <template #stack-icons>
-          <IconTailwindCSS />
-          <IconAlpine />
-          <IconLaravel />
-          <IconLivewire />
-        </template>
-      </ProjectCard>
+      <SwiperSlide>
+        <ProjectCard
+          title="CRM"
+          description="A basic CRM to manage clients and employees using TALL stack."
+          link="https://example.com/"
+          githubLink="https://github.com/"
+          :light="false"
+        >
+          <template #stack-icons>
+            <IconTailwindCSS />
+            <IconAlpine />
+            <IconLaravel />
+            <IconLivewire />
+          </template>
+        </ProjectCard>
+      </SwiperSlide>
 
-      <ProjectCard
-        title="ToDo App"
-        description="A Flutter and Firebase app to track personal tasks."
-        github="https://github.com/"
-        :light="false"
-      >
-        <template #stack-icons>
-          <IconFlutter />
-          <IconFirebase />
-        </template>
-      </ProjectCard>
-    </template>
+      <SwiperSlide>
+        <ProjectCard
+          title="ToDo App"
+          description="A Flutter and Firebase app to track personal tasks."
+          githubLink="https://github.com/"
+          :light="false"
+        >
+          <template #stack-icons>
+            <IconFlutter />
+            <IconFirebase />
+          </template>
+        </ProjectCard>
+      </SwiperSlide>
+    </Swiper>
   </AppSection>
 
   <AppSection title="Services" description="Let's work together!" :cols="2">
@@ -221,4 +251,8 @@
   </AppSection>
 </template>
 
-<style scoped></style>
+<style scoped>
+.swiper-pagination {
+  bottom: 0px;
+}
+</style>

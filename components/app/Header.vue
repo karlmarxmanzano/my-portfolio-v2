@@ -1,5 +1,7 @@
 <template>
-  <header class="py-6 border-b border-opacity-20 border-primary">
+  <header
+    class="py-6 border-b border-opacity-20 border-primary dark:bg-[#0f172af9] dark:text-slate-200 dark:border-b-0 dark:border-opacity-0"
+  >
     <AppContainer>
       <div class="flex items-center justify-between">
         <IconLogo />
