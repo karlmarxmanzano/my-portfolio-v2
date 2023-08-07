@@ -8,22 +8,22 @@
 
         <SocialContainer class="flex items-center gap-x-6">
           <SocialItem>
-            <a href="https://github.com/karlmarxmanzano" target="_blank">
+            <NuxtLink href="https://github.com/karlmarxmanzano" target="_blank">
               <IconGithub class="dark:text-slate-300" />
-            </a>
+            </NuxtLink>
           </SocialItem>
           <SocialItem>
-            <a href="mailto:karlmarxmanzano@gmail.com">
+            <NuxtLink href="mailto:karlmarxmanzano@gmail.com">
               <IconGmail />
-            </a>
+            </NuxtLink>
           </SocialItem>
           <SocialItem>
-            <a
+            <NuxtLink
               href="https://www.linkedin.com/in/karl-marx-manzano-9331b8209/"
               target="_blank"
             >
               <IconLinkedIn />
-            </a>
+            </NuxtLink>
           </SocialItem>
         </SocialContainer>
       </div>

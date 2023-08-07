@@ -3,7 +3,7 @@ const projects = [
   {
     title: 'Isuzuphil.com.ph',
     slug: 'isuzuphil-com-ph',
-    imageUrl: '../assets/images/isuzuphil.png',
+    imageUrl: '/images/isuzuphil.png',
     description: 'Complete revamp of Isuzu Philippines website.',
     link: 'https://www.isuzuphil.com/',
     githubRepo: '',
@@ -21,7 +21,7 @@ const projects = [
   {
     title: 'Ritemed.com.ph',
     slug: 'ritemed-com-ph',
-    imageUrl: '../assets/images/ritemed.png',
+    imageUrl: '/images/ritemed.png',
     description:
       'Front-end enhancements of Ritemed Philippines website to provide a better user experience namely a store/medicine locator.',
     link: 'https://www.ritemed.com.ph/',
@@ -32,7 +32,7 @@ const projects = [
   {
     title: 'Unistar Credit and Finance Corp.',
     slug: 'unistar-credit-and-finance-corp',
-    imageUrl: '../assets/images/unistar.png',
+    imageUrl: '/images/unistar.png',
     description:
       'Full stack development from scratch. Built a website for a financing firm to provide a fast, easy, and convenient loan operations',
     techStack: [
@@ -49,7 +49,7 @@ const projects = [
   {
     title: 'BuhayHW.com',
     slug: 'buhayhw-com',
-    imageUrl: '../assets/images/buhayhw.png',
+    imageUrl: '/images/buhayhw.png',
     description:
       'Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ',
     link: 'https://buhayhw.com/',
@@ -60,7 +60,7 @@ const projects = [
   {
     title: 'My Personal Portfolio',
     slug: 'my-personal-portfolio',
-    imageUrl: '../assets/images/portfolio.png',
+    imageUrl: '/images/portfolio.png',
     description:
       'My Personal Portfolio built with Nuxt and TailwindCSS implementing a mobile-first development. Designed and developed using the latest technologies.',
     link: 'https://example.com/',
@@ -71,7 +71,7 @@ const projects = [
   {
     title: 'Trello Clone',
     slug: 'trello-clone',
-    imageUrl: '../assets/images/trello-clone.png',
+    imageUrl: '/images/trello-clone.png',
     description:
       'Basic Trello app clone using Vue - TS, Vue Composition API, Pinia for state management, and TailwindCSS.',
     link: 'https://xenodochial-brahmagupta-453531.netlify.app/',
@@ -101,8 +101,11 @@ const route = useRoute();
 const slug = route.params.slug;
 
 const selectedProject = projects.find((project) => project.slug === slug);
+
+const { featured: isFeatured } = selectedProject;
+
 const otherFeaturedProjects = projects.filter(
-  (project) => project.slug !== slug && project.featured === true
+  (project) => project.slug !== slug && project.featured === isFeatured
 );
 </script>
 
@@ -138,11 +141,13 @@ const otherFeaturedProjects = projects.filter(
           >
             URL:
           </div>
-          <div
+          <NuxtLink
+            :to="selectedProject.link"
+            target="_blank"
             class="inline-block px-2 py-1 text-sm tracking-tight text-primary dark:text-slate-200 font-primary"
           >
             {{ selectedProject.link }}
-          </div>
+          </NuxtLink>
         </div>
 
         <div v-if="selectedProject.githubRepo">

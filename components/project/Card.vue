@@ -36,12 +36,12 @@ const { title, slug, imageUrl, description, link, githubRepo, techStack } =
         </div>
 
         <div class="flex items-center gap-x-2">
-          <a :href="link" target="_blank" v-if="link">
+          <NuxtLink :href="link" target="_blank" v-if="link">
             <IconOpenInNew />
-          </a>
-          <a :href="githubRepo" target="_blank" v-if="githubRepo">
+          </NuxtLink>
+          <NuxtLink :href="githubRepo" target="_blank" v-if="githubRepo">
             <IconGithub class="dark:text-slate-300" />
-          </a>
+          </NuxtLink>
         </div>
       </div>
 

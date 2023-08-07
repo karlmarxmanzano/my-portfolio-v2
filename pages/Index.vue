@@ -3,7 +3,7 @@ const projects = [
   {
     title: 'Isuzuphil.com.ph',
     slug: 'isuzuphil-com-ph',
-    imageUrl: '../assets/images/isuzuphil.png',
+    imageUrl: '/images/isuzuphil.png',
     description: 'Complete revamp of Isuzu Philippines website.',
     link: 'https://www.isuzuphil.com/',
     githubRepo: '',
@@ -21,7 +21,7 @@ const projects = [
   {
     title: 'Ritemed.com.ph',
     slug: 'ritemed-com-ph',
-    imageUrl: '../assets/images/ritemed.png',
+    imageUrl: '/images/ritemed.png',
     description:
       'Front-end enhancements of Ritemed Philippines website to provide a better user experience namely a store/medicine locator.',
     link: 'https://www.ritemed.com.ph/',
@@ -32,7 +32,7 @@ const projects = [
   {
     title: 'Unistar Credit and Finance Corp.',
     slug: 'unistar-credit-and-finance-corp',
-    imageUrl: '../assets/images/unistar.png',
+    imageUrl: '/images/unistar.png',
     description:
       'Full stack development from scratch. Built a website for a financing firm to provide a fast, easy, and convenient loan operations',
     techStack: [
@@ -49,7 +49,7 @@ const projects = [
   {
     title: 'BuhayHW.com',
     slug: 'buhayhw-com',
-    imageUrl: '../assets/images/buhayhw.png',
+    imageUrl: '/images/buhayhw.png',
     description:
       'Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ',
     link: 'https://buhayhw.com/',
@@ -60,7 +60,7 @@ const projects = [
   {
     title: 'My Personal Portfolio',
     slug: 'my-personal-portfolio',
-    imageUrl: '../assets/images/portfolio.png',
+    imageUrl: '/images/portfolio.png',
     description:
       'My Personal Portfolio built with Nuxt and TailwindCSS implementing a mobile-first development. Designed and developed using the latest technologies.',
     link: 'https://example.com/',
@@ -71,7 +71,7 @@ const projects = [
   {
     title: 'Trello Clone',
     slug: 'trello-clone',
-    imageUrl: '../assets/images/trello-clone.png',
+    imageUrl: '/images/trello-clone.png',
     description:
       'Basic Trello app clone using Vue - TS, Vue Composition API, Pinia for state management, and TailwindCSS.',
     link: 'https://xenodochial-brahmagupta-453531.netlify.app/',
@@ -111,7 +111,7 @@ const otherProjects = projects.filter((project) => project.featured === false);
       <div class="mb-10 lg:order-2 lg:mb-0">
         <img
           class="dark:border-slate-700 w-1/2 mx-auto border rounded-full shadow-lg dark:shadow-slate-700 sm:w-1/3 h-50 border-slate-200 lg:w-[60%] lg:ml-auto lg:mr-0"
-          src="~/assets/images/karl.jpg"
+          src="/images/karl.jpg"
           alt="Karl Marx Manzano"
         />
       </div>
@@ -202,9 +202,10 @@ const otherProjects = projects.filter((project) => project.featured === false);
 
   <!-- Contact -->
   <AppSection title="Contact" description="Get in touch" :dark="true">
-    <p class="block mb-10 font-semibold text-center">
+    <p class="block mb-10 text-sm text-center font-secondary">
       I am looking for new opportunities either full time or part time, remote
-      work setup, currently.
+      work setup, currently. If you have an idea or need assistance with an
+      ongoing project, I'd love to hear from you.
     </p>
 
     <ButtonCta
