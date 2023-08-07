@@ -6,26 +6,26 @@
       <div class="flex items-center justify-between">
         <IconLogo />
 
-        <AppNav class="flex items-center gap-x-6">
-          <AppNavItem>
+        <SocialContainer class="flex items-center gap-x-6">
+          <SocialItem>
             <a href="https://github.com/karlmarxmanzano" target="_blank">
               <IconGithub class="dark:text-slate-300" />
             </a>
-          </AppNavItem>
-          <AppNavItem>
+          </SocialItem>
+          <SocialItem>
             <a href="mailto:karlmarxmanzano@gmail.com">
               <IconGmail />
             </a>
-          </AppNavItem>
-          <AppNavItem>
+          </SocialItem>
+          <SocialItem>
             <a
               href="https://www.linkedin.com/in/karl-marx-manzano-9331b8209/"
               target="_blank"
             >
               <IconLinkedIn />
             </a>
-          </AppNavItem>
-        </AppNav>
+          </SocialItem>
+        </SocialContainer>
       </div>
     </AppContainer>
   </div>

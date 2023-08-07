@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useSlots } from 'vue';
 
 interface Props {
   title?: string;
   description?: string;
-  dark: boolean;
-  cols: number;
+  dark?: boolean;
+  cols?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -22,6 +22,8 @@ const column = computed(() => {
       return 'lg:grid-cols-2';
   }
 });
+
+const slots = useSlots();
 </script>
 
 <template>
@@ -39,12 +41,23 @@ const column = computed(() => {
         :class="[!props.title || !props.description ? 'mb-10' : 'mb-12']"
       >
         <div class="lg:basis-4/5">
-          <span
+          <div
             class="block mb-2 font-semibold uppercase text-primary font-secondary dark:text-slate-500"
-            v-if="props.title"
           >
-            &lt {{ props.title }} /&gt
-          </span>
+            &lt
+            <template v-if="slots.animatedTitle">
+              <div class="wave">
+                <slot name="animatedTitle" />
+              </div>
+            </template>
+            <template v-else>
+              <span v-if="props.title">
+                {{ props.title }}
+              </span>
+            </template>
+            /&gt
+          </div>
+
           <h2
             class="text-xl font-bold sm:text-2xl lg:text-3xl font-primary"
             v-if="props.description"
@@ -64,3 +77,40 @@ const column = computed(() => {
     </AppContainer>
   </section>
 </template>
+
+<style scoped lang="scss">
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+</style>

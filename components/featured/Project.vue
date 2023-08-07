@@ -7,7 +7,7 @@ interface Props {
   description: string;
   link?: string;
   github?: string;
-  dark: boolean;
+  dark?: boolean;
   reverse: boolean;
 }
 
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
     >
       <div class="flex items-center justify-between mb-2 mt-7 lg:mt-0">
         <div
-          class="font-bold uppercase truncate text-primary font-primary dark:text-slate-200"
+          class="font-bold tracking-tight uppercase truncate text-primary font-primary dark:text-slate-200"
         >
           {{ props.title }}
         </div>

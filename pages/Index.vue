@@ -1,4 +1,65 @@
+<script setup lang="ts">
+const featuredProjects = [
+  {
+    title: 'Isuzuphil.com.ph',
+    imageUrl: '../assets/images/isuzuphil.png',
+    description: 'Complete revamp of Isuzu Philippines website.',
+    link: 'https://www.isuzuphil.com/',
+  },
+  {
+    title: 'Ritemed.com.ph',
+    imageUrl: '../assets/images/ritemed.png',
+    description:
+      'Front-end enhancements of Ritemed Philippines website to provide a better user experience namely a store/medicine locator.',
+    link: 'https://www.ritemed.com.ph/',
+    reverse: true,
+  },
+  {
+    title: 'Unistar Credit and Finance Corp.',
+    imageUrl: '../assets/images/unistar.png',
+    description:
+      'Full stack development from scratch. Built a website for a financing firm to provide a fast, easy, and convenient loan operations',
+  },
+  {
+    title: 'BuhayHW.com',
+    imageUrl: '../assets/images/buhayhw.png',
+    description:
+      'Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ',
+    link: 'https://buhayhw.com/',
+    reverse: true,
+  },
+];
+
+const otherProjects = [
+  {
+    title: 'Personal Portfolio',
+    imageUrl: '../assets/images/portfolio.png',
+    description:
+      'My Personal Portfolio built with Nuxt and TailwindCSS implementing a mobile-first development. Designed and developed using the latest technologies.',
+    link: 'https://example.com/',
+    githubLink: 'https://github.com/',
+  },
+  {
+    title: 'Trello Clone',
+    imageUrl: '../assets/images/trello-clone.png',
+    description:
+      'Basic Trello app clone using Vue - TS, Vue Composition API, Pinia for state management, and TailwindCSS.',
+    link: 'https://xenodochial-brahmagupta-453531.netlify.app/',
+    githubLink: 'https://github.com/karlmarxmanzano/trello-clone',
+  },
+  {
+    title: 'Laravel CRM',
+    description:
+      'Simple CRM website to showcase TALL (Tailwind, Alpine.js, Laravel, Livewire) stack development using Laravel Filament.',
+    link: 'https://example.com/',
+    githubLink: 'https://github.com/',
+    //
+  },
+];
+</script>
+
 <template>
+  <!-- Hero -->
   <section class="bg-slate-200 dark:bg-slate-900">
     <AppContainer class="grid py-16 lg:grid-cols-2">
       <div class="mb-10 lg:order-2 lg:mb-0">
@@ -24,7 +85,9 @@
     </AppContainer>
   </section>
 
-  <AppSection title="👋" description="About">
+  <!-- About -->
+  <AppSection description="About">
+    <template #animatedTitle>👋</template>
     <p class="mb-6 text-sm font-secondary indent-8 sm:tracking-wide">
       Hello! I'm Karl Marx Manzano, a full stack web developer with more than
       5yrs of professional experience in building exceptional web solutions for
@@ -35,19 +98,16 @@
     <p class="mb-8 text-sm lg:mb-12 font-secondary indent-8 sm:tracking-wide">
       More than 5 yrs I'm working as a web developer, I focus on full stack
       development using latest technologies and tools. I always try my best to
-      produce high quality codes by implementing code best practices. I love to
-      take challenging tasks and am constantly learning new technologies. I am
-      hard-working, responsible, and a dedicated team member.
+      produce high quality codes by implementing standard and best practices. I
+      love to take challenging tasks and am constantly learning new technologies
+      and strategies to provide a better quality services. I am hard-working,
+      responsible, and a dedicated team member.
     </p>
 
-    <a
-      href="#"
-      class="py-2 ml-1 text-sm font-semibold text-center uppercase transition-all border rounded-lg cursor-pointer dark:hover:text-slate-400 dark:hover:border-slate-400 dark:hover:bg-slate-900 dark:hover:text-400 dark:text-yellow-400 dark:border-yellow-400 lg:px-4 lg:max-w-fit font-secondary border-primary text-primary border-primary-light hover:bg-primary hover:text-white"
-    >
-      Download resume
-    </a>
+    <ButtonCta class="block"> Download Resume </ButtonCta>
   </AppSection>
 
+  <!-- Featured projects -->
   <AppSection
     title="Portfolio"
     description="Some projects I worked on."
@@ -55,69 +115,19 @@
     :dark="true"
   >
     <FeaturedProject
-      title="Isuzuphil.com.ph"
-      imageUrl="../assets/images/isuzuphil.png"
-      description="Revamping their old site into a more modern design and implementing new features to make potential buyers updated, provide online support, and a virtual showroom."
-      link="https://www.isuzuphil.com/"
+      v-for="(project, key) in featuredProjects"
+      :key="key"
+      :title="project.title"
+      :imageUrl="project.imageUrl"
+      :description="project.description"
+      :link="project.link"
+      :reverse="project.reverse"
       class="mb-10 lg:mb-16"
     >
-      <template #stack-icons>
-        <IconLaravel />
-        <IconOctoberCMS />
-        <IconBootstrap />
-        <IconJQuery />
-        <IconSass />
-      </template>
-    </FeaturedProject>
-    <!--  -->
-    <FeaturedProject
-      title="Ritemed.com.ph"
-      imageUrl="../assets/images/ritemed.png"
-      description="Helping users on their medical needs by improving the site UI/UX design and features to provide smoother user experience."
-      link="https://www.ritemed.com.ph/"
-      :reverse="true"
-      class="mb-10 lg:mb-16"
-    >
-      <template #stack-icons>
-        <IconCodeIgniter />
-        <IconPHP />
-        <IconBootstrap />
-        <IconJQuery />
-        <IconSass />
-      </template>
-    </FeaturedProject>
-
-    <FeaturedProject
-      title="Unistar Credit and Finance Corp."
-      imageUrl="../assets/images/unistar.png"
-      description="Making a loan fast, easy, and convenient."
-      class="mb-10 lg:mb-16"
-    >
-      <template #stack-icons>
-        <IconLaravel />
-        <IconOctoberCMS />
-        <IconBootstrap />
-        <IconJQuery />
-        <IconCSS />
-      </template>
-    </FeaturedProject>
-
-    <FeaturedProject
-      title="BuhayHW.com"
-      imageUrl="../assets/images/buhayhw.png"
-      description="Providing information about IV Therapy types and its benefits. Allowing users to book for an appointent with a physician."
-      link="https://buhayhw.com/"
-      :reverse="true"
-      class="mb-10 lg:mb-16"
-    >
-      <template #stack-icons>
-        <IconWordpress />
-        <IconCSS />
-        <IconSquarespace />
-      </template>
     </FeaturedProject>
   </AppSection>
 
+  <!-- Other projects -->
   <AppSection
     title="Portfolio"
     description="Other Significant Projects."
@@ -128,7 +138,6 @@
       :slides-per-view="1"
       :loop="true"
       :pagination="{ clickable: true }"
-      :free-mode="true"
       :autoplay="{
         delay: 8000,
         disableOnInteraction: true,
@@ -139,125 +148,37 @@
           spaceBetween: 25,
         },
       }"
+      space-between="30"
+      :auto-height="true"
     >
-      <SwiperSlide>
+      <SwiperSlide v-for="(otherProject, key) in otherProjects">
         <ProjectCard
-          title="Trello Clone"
-          imageUrl="../assets/images/trello-clone.png"
-          description="A trello clone built with VueJs, TailwindCSS, and SaSS."
-          link="https://xenodochial-brahmagupta-453531.netlify.app/"
-          githubLink="https://github.com/karlmarxmanzano/trello-clone"
-          :dark="true"
+          :key="key"
+          :title="otherProject.title"
+          :imageUrl="otherProject.imageUrl"
+          :description="otherProject.description"
+          :link="otherProject.link"
+          :githubLink="otherProject.githubLink"
         >
-          <template #stack-icons>
-            <IconVue />
-            <IconTailwindCSS />
-            <IconSass />
-          </template>
-        </ProjectCard>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <ProjectCard
-          title="Personal Portfolio"
-          imageUrl="../assets/images/portfolio.png"
-          description="My Personal Portfolio to showcase my works and skills with Nuxt, TailwindCSS, and mobile-first responsive design."
-          link="https://example.com/"
-          githubLink="https://github.com/"
-          :dark="true"
-        >
-          <template #:stack-icons>
-            <IconNuxt />
-            <IconTailwindCSS />
-            <IconSass />
-          </template>
-        </ProjectCard>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <ProjectCard
-          title="Multi-tenancy Web App"
-          description="A simple multi-tenancy web app showcasing on how to handle a single and multiple subdomains and databases."
-          link="https://example.com/"
-          githubLink="https://github.com/"
-          :dark="true"
-        >
-          <template #stack-icons>
-            <IconLaravel />
-            <IconTailwindCSS />
-            <IconSass />
-          </template>
-        </ProjectCard>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <ProjectCard
-          title="CRM"
-          description="A basic CRM to manage clients and employees using TALL stack."
-          link="https://example.com/"
-          githubLink="https://github.com/"
-          :dark="true"
-        >
-          <template #stack-icons>
-            <IconTailwindCSS />
-            <IconAlpine />
-            <IconLaravel />
-            <IconLivewire />
-          </template>
-        </ProjectCard>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <ProjectCard
-          title="ToDo App"
-          description="A Flutter and Firebase app to track personal tasks."
-          githubLink="https://github.com/"
-          :dark="true"
-        >
-          <template #stack-icons>
-            <IconFlutter />
-            <IconFirebase />
-          </template>
         </ProjectCard>
       </SwiperSlide>
     </Swiper>
   </AppSection>
 
-  <AppSection
-    title="Services"
-    description="Let's work together!"
-    :cols="2"
-    :dark="true"
-  >
-    <template #content>
-      <ServiceCard
-        title="Front End Development"
-        subtitle="<html/>"
-        description="Improving, revamping, or building from scratch your UI/UX design from
-          Figma/AdobeXD to a real world application using the latest technology
-          such as HTML, JavScript, Vue, Nuxt, or SaSS."
-      />
+  <!-- Contact -->
+  <AppSection title="Contact" description="Get in touch" :dark="true">
+    <p class="block mb-10 font-semibold text-center">
+      I am looking for new opportunities either full time or part time remote
+      work setup currently. Looking forward to hearing from you!
+    </p>
 
-      <ServiceCard
-        title="Back End Development"
-        subtitle="echo 'Hello World!';"
-        description="Building from scratch or optimizating your back-end service to provide
-          reliable and faster output. Designing MySQL database to meet standard
-          designs."
-      />
-
-      <ServiceCard
-        title="API Integration and Development"
-        subtitle="{...}"
-        description="3rd Party API integrations into your existing website or engineering
-          your own API service."
-      />
-    </template>
+    <ButtonCta
+      url="mailto:karlmarxmanzano@gmail.com"
+      class="block md:max-w-fit md:mx-auto"
+    >
+      Say Hello
+    </ButtonCta>
   </AppSection>
 </template>
 
-<style scoped>
-.swiper-pagination {
-  bottom: 0px;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -5,7 +5,7 @@ interface Props {
   description: string;
   link?: string;
   githubLink?: string;
-  dark: boolean;
+  dark?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {

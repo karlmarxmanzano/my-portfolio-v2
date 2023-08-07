@@ -12,7 +12,7 @@
             <AppNavItem>Home</AppNavItem>
             <AppNavItem>About</AppNavItem>
             <AppNavItem>Portfolio</AppNavItem>
-            <AppNavItem>Services</AppNavItem>
+            <AppNavItem>Contact</AppNavItem>
           </AppNav>
 
           <div class="flex items-center gap-x-2 lg:ml-4 lg:block">
