@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-night">
+  <div>
     <AppHeader />
     <slot />
     <AppFooter />

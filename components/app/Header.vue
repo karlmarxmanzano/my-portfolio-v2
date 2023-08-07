@@ -4,7 +4,9 @@
   >
     <AppContainer>
       <div class="flex items-center justify-between">
-        <IconLogo />
+        <NuxtLink to="/">
+          <IconLogo />
+        </NuxtLink>
 
         <!-- Right side menu -->
         <div class="flex items-center gap-x-2">

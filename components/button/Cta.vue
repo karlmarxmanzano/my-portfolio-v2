@@ -7,6 +7,7 @@ const props = withDefaults(defineProps<Props>(), {
   url: '#',
 });
 </script>
+
 <template>
   <a
     :href="props.url"

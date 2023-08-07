@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/20/solid';
 
-interface Props {
+interface Project {
   title: string;
+  slug: string;
   imageUrl: string;
   description: string;
   link?: string;
   github?: string;
+  techStack: string[];
+}
+
+interface Props {
+  project: Project;
   dark?: boolean;
-  reverse: boolean;
+  reverse?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,18 +32,27 @@ const props = withDefaults(defineProps<Props>(), {
       :class="{ '!order-2': props.reverse }"
     >
       <div class="flex items-center justify-between mb-2 mt-7 lg:mt-0">
-        <div
+        <NuxtLink
+          :to="`/projects/${props.project.slug}`"
           class="font-bold tracking-tight uppercase truncate text-primary font-primary dark:text-slate-200"
         >
-          {{ props.title }}
-        </div>
+          {{ props.project.title }}
+        </NuxtLink>
 
         <div class="flex items-center space-x-2">
           <div>
-            <a :href="props.link" target="_blank" v-if="props.link">
+            <a
+              :href="props.project.link"
+              target="_blank"
+              v-if="props.project.link"
+            >
               <ArrowTopRightOnSquareIcon class="w-5 h-5" />
             </a>
-            <a :href="props.github" target="_blank" v-if="props.github">
+            <a
+              :href="props.project.github"
+              target="_blank"
+              v-if="props.project.github"
+            >
               <IconGithub class="dark:text-slate-300" />
             </a>
           </div>
@@ -45,15 +60,15 @@ const props = withDefaults(defineProps<Props>(), {
       </div>
 
       <div class="text-sm font-secondary dark:text-slate-400">
-        {{ props.description }}
+        {{ props.project.description }}
       </div>
     </div>
 
     <div class="order-1">
       <img
         class="shadow-[10px_10px_0_#94A3B8] object-cover dark:shadow-[10px_10px_0_#1E293B]"
-        :src="props.imageUrl"
-        :alt="props.title"
+        :src="props.project.imageUrl"
+        :alt="props.project.title"
       />
     </div>
   </div>
