@@ -102,6 +102,9 @@ const featuredProjects = projects.filter(
 );
 
 const otherProjects = projects.filter((project) => project.featured === false);
+
+const resumeUrl =
+  'https://drive.google.com/file/d/15E0v5AKZ0G5nSyrONVfqQWDNQ3wGnO_o/view?usp=sharing';
 </script>
 
 <template>
@@ -150,7 +153,7 @@ const otherProjects = projects.filter((project) => project.featured === false);
       responsible, and a dedicated team member.
     </p>
 
-    <ButtonCta class="block"> Download Resume </ButtonCta>
+    <ButtonCta :url="resumeUrl" class="block"> Download Resume </ButtonCta>
   </AppSection>
 
   <!-- Featured projects -->

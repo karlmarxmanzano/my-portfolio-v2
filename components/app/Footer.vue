@@ -19,7 +19,7 @@
           </SocialItem>
           <SocialItem>
             <NuxtLink
-              href="https://www.linkedin.com/in/karl-marx-manzano-9331b8209/"
+              href="https://www.linkedin.com/in/karl-marx-manzano/"
               target="_blank"
             >
               <IconLinkedIn />
