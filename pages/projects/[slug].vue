@@ -102,6 +102,10 @@ const slug = route.params.slug;
 
 const selectedProject = projects.find((project) => project.slug === slug);
 
+if (!selectedProject) {
+  throw new Error('An error has occured');
+}
+
 const { featured: isFeatured } = selectedProject;
 
 const otherFeaturedProjects = projects.filter(
@@ -115,7 +119,7 @@ const otherFeaturedProjects = projects.filter(
   >
     <AppContainer>
       <div
-        class="mb-10 text-2xl font-bold text-center uppercase lg:text-xl sm:text-2xl lg:text-3xl font-primary dark:text-slate-200 text-primary"
+        class="mb-10 text-2xl font-bold text-center uppercase lg:text-xl sm:text-2xl font-primary dark:text-slate-200 text-primary"
       >
         {{ selectedProject.title }}
       </div>
