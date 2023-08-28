@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/20/solid';
-
-interface Project {
-  title: string;
-  slug: string;
-  imageUrl: string;
-  description: string;
-  link?: string;
-  github?: string;
-  techStack: string[];
-}
+import { Project } from 'interfaces/project';
 
 interface Props {
   project: Project;

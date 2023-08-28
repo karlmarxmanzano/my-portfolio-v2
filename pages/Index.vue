@@ -1,110 +1,125 @@
 <script setup lang="ts">
-const projects = [
-  {
-    title: 'Isuzuphil.com.ph',
-    slug: 'isuzuphil-com-ph',
-    imageUrl: '/images/isuzuphil.png',
-    description: 'Complete revamp of Isuzu Philippines website.',
-    link: 'https://www.isuzuphil.com/',
-    githubRepo: '',
-    techStack: [
-      'Laravel',
-      'OctoberCMS',
-      'MySQL',
-      'Bootstrap',
-      'SaSS',
-      'jQuery',
-      'Twig',
-    ],
-    featured: true,
-  },
-  {
-    title: 'Ritemed.com.ph',
-    slug: 'ritemed-com-ph',
-    imageUrl: '/images/ritemed.png',
-    description:
-      'Front-end enhancements of Ritemed Philippines website to provide a better user experience namely a store/medicine locator.',
-    link: 'https://www.ritemed.com.ph/',
-    githubRepo: '',
-    techStack: ['CodeIgniter', 'Bootstrap', 'SaSS'],
-    featured: true,
-  },
-  {
-    title: 'Unistar Credit and Finance Corp.',
-    slug: 'unistar-credit-and-finance-corp',
-    imageUrl: '/images/unistar.png',
-    description:
-      'Full stack development from scratch. Built a website for a financing firm to provide a fast, easy, and convenient loan operations',
-    techStack: [
-      'Laravel',
-      'OctoberCMS',
-      'MySQL',
-      'Bootstrap',
-      'SaSS',
-      'jQuery',
-      'Twig',
-    ],
-    featured: true,
-  },
-  {
-    title: 'BuhayHW.com',
-    slug: 'buhayhw-com',
-    imageUrl: '/images/buhayhw.png',
-    description:
-      'Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ',
-    link: 'https://buhayhw.com/',
-    githubRepo: '',
-    techStack: ['WordPress', 'CSS', 'MySQL'],
-    featured: true,
-  },
-  {
-    title: 'My Personal Portfolio',
-    slug: 'my-personal-portfolio',
-    imageUrl: '/images/portfolio.png',
-    description:
-      'My Personal Portfolio built with Nuxt and TailwindCSS implementing a mobile-first development. Designed and developed using the latest technologies.',
-    link: 'https://example.com/',
-    githubRepo: 'https://github.com/',
-    techStack: ['Nuxt', 'TailwindCSS', 'Pinia'],
-    featured: false,
-  },
-  {
-    title: 'Trello Clone',
-    slug: 'trello-clone',
-    imageUrl: '/images/trello-clone.png',
-    description:
-      'Basic Trello app clone using Vue - TS, Vue Composition API, Pinia for state management, and TailwindCSS.',
-    link: 'https://xenodochial-brahmagupta-453531.netlify.app/',
-    githubRepo: 'https://github.com/karlmarxmanzano/trello-clone',
-    techStack: ['Vue', 'TypeScript', 'TailwindCSS', 'Pinia'],
-    featured: false,
-  },
-  {
-    title: 'Laravel CRM',
-    slug: 'laravel-crm',
-    description:
-      'Simple CRM website to showcase TALL (Tailwind, Alpine.js, Laravel, Livewire) stack development using Laravel Filament.',
-    link: 'https://example.com/',
-    githubRepo: 'https://github.com/',
-    techStack: [
-      'TailwindCSS',
-      'Alpine',
-      'Laravel',
-      'Livewire',
-      'Laravel Filament',
-    ],
-    featured: false,
-  },
-];
+import useProjectStore from '@/composables/useProject';
+import { storeToRefs } from 'pinia';
 
-const featuredProjects = projects.filter(
-  (project) => project.featured === true
-);
+// const projects = [
+//   {
+//     title: 'Isuzuphil.com.ph',
+//     slug: 'isuzuphil-com-ph',
+//     imageUrl: '/images/isuzuphil.png',
+//     description: 'Complete revamp of Isuzu Philippines website.',
+//     link: 'https://www.isuzuphil.com/',
+//     githubRepo: '',
+//     techStack: [
+//       'Laravel',
+//       'OctoberCMS',
+//       'MySQL',
+//       'Bootstrap',
+//       'SaSS',
+//       'jQuery',
+//       'Twig',
+//     ],
+//     featured: true,
+//   },
+//   {
+//     title: 'Ritemed.com.ph',
+//     slug: 'ritemed-com-ph',
+//     imageUrl: '/images/ritemed.png',
+//     description:
+//       'Front-end enhancements of Ritemed Philippines website to provide a better user experience namely a store/medicine locator.',
+//     link: 'https://www.ritemed.com.ph/',
+//     githubRepo: '',
+//     techStack: ['CodeIgniter', 'Bootstrap', 'SaSS'],
+//     featured: true,
+//   },
+//   {
+//     title: 'Unistar Credit and Finance Corp.',
+//     slug: 'unistar-credit-and-finance-corp',
+//     imageUrl: '/images/unistar.png',
+//     description:
+//       'Full stack development from scratch. Built a website for a financing firm to provide a fast, easy, and convenient loan operations',
+//     techStack: [
+//       'Laravel',
+//       'OctoberCMS',
+//       'MySQL',
+//       'Bootstrap',
+//       'SaSS',
+//       'jQuery',
+//       'Twig',
+//     ],
+//     featured: true,
+//   },
+//   {
+//     title: 'BuhayHW.com',
+//     slug: 'buhayhw-com',
+//     imageUrl: '/images/buhayhw.png',
+//     description:
+//       'Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ',
+//     link: 'https://buhayhw.com/',
+//     githubRepo: '',
+//     techStack: ['WordPress', 'CSS', 'MySQL'],
+//     featured: true,
+//   },
+//   {
+//     title: 'My Personal Portfolio',
+//     slug: 'my-personal-portfolio',
+//     imageUrl: '/images/portfolio.png',
+//     description:
+//       'My Personal Portfolio built with Nuxt and TailwindCSS implementing a mobile-first development. Designed and developed using the latest technologies.',
+//     link: 'https://example.com/',
+//     githubRepo: 'https://github.com/',
+//     techStack: ['Nuxt', 'TailwindCSS', 'Pinia'],
+//     featured: false,
+//   },
+//   {
+//     title: 'Trello Clone',
+//     slug: 'trello-clone',
+//     imageUrl: '/images/trello-clone.png',
+//     description:
+//       'Basic Trello app clone using Vue - TS, Vue Composition API, Pinia for state management, and TailwindCSS.',
+//     link: 'https://xenodochial-brahmagupta-453531.netlify.app/',
+//     githubRepo: 'https://github.com/karlmarxmanzano/trello-clone',
+//     techStack: ['Vue', 'TypeScript', 'TailwindCSS', 'Pinia'],
+//     featured: false,
+//   },
+//   {
+//     title: 'Laravel CRM',
+//     slug: 'laravel-crm',
+//     description:
+//       'Simple CRM website to showcase TALL (Tailwind, Alpine.js, Laravel, Livewire) stack development using Laravel Filament.',
+//     link: 'https://example.com/',
+//     githubRepo: 'https://github.com/',
+//     techStack: [
+//       'TailwindCSS',
+//       'Alpine',
+//       'Laravel',
+//       'Livewire',
+//       'Laravel Filament',
+//     ],
+//     featured: false,
+//   },
+// ];
 
-const otherProjects = projects.filter((project) => project.featured === false);
+// const featuredProjects = projects.filter(
+//   (project) => project.featured === true
+// );
+
+// const otherProjects = projects.filter((project) => project.featured === false);
 
 const resumeUrl =
   'https://drive.google.com/file/d/15E0v5AKZ0G5nSyrONVfqQWDNQ3wGnO_o/view?usp=sharing';
+
+const store = useProjectStore();
+const { getProjects } = store;
+const { featuredProjects, otherProjects } = storeToRefs(store);
+
+onMounted(async () => {
+  getProjects();
+});
+
+store.$subscribe((mutation, state) => {
+  localStorage.setItem('cart', JSON.stringify(state));
+});
 </script>
 
 <template>

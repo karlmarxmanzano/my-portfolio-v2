@@ -1,13 +1,5 @@
 <script setup lang="ts">
-interface Project {
-  title: string;
-  slug: string;
-  imageUrl: string;
-  description: string;
-  link?: string;
-  githubRepo?: string;
-  techStack: string[];
-}
+import { Project } from 'interfaces/project';
 
 interface Props {
   project: Project;
@@ -18,7 +10,7 @@ const props = withDefaults(defineProps<Props>(), {
   dark: false,
 });
 
-const { title, slug, imageUrl, description, link, githubRepo, techStack } =
+const { title, slug, imageUrl, description, link, github, techStack } =
   props.project;
 </script>
 
@@ -39,7 +31,7 @@ const { title, slug, imageUrl, description, link, githubRepo, techStack } =
           <NuxtLink :href="link" target="_blank" v-if="link">
             <IconOpenInNew />
           </NuxtLink>
-          <NuxtLink :href="githubRepo" target="_blank" v-if="githubRepo">
+          <NuxtLink :href="github" target="_blank" v-if="github">
             <IconGithub class="dark:text-slate-300" />
           </NuxtLink>
         </div>

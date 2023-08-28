@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  typescript: {
+    strict: true,
+  },
+  ssr: false,
   css: ['~/assets/main.scss'],
   postcss: {
     plugins: {
@@ -8,7 +12,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@nuxtjs/google-fonts', 'nuxt-swiper', '@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/google-fonts',
+    'nuxt-swiper',
+    '@nuxtjs/color-mode',
+    '@pinia/nuxt',
+  ],
   googleFonts: {
     families: {
       'JetBrains Mono': true,
@@ -21,5 +30,8 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: '',
+  },
+  pinia: {
+    autoImports: ['defineStore'],
   },
 });

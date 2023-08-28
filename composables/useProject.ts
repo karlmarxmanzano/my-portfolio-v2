@@ -3,57 +3,50 @@ import { defineStore } from 'pinia';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-interface Data {
-  data: Project[] | null;
+interface FetchProjectsResponse {
+  projects?: Project[] | undefined;
 }
 
 const useProjectStore = defineStore('project', () => {
-  const projects = ref<Project[]>({ projects: null as Project });
   const route = useRoute();
   const slug = route.params.slug;
-  const test = ref({});
+  const projects = ref<Project[]>();
 
-  const getTest = async () => {
-    const { data } = await useFetch('/api/projects');
-    test.value = data;
+  const selectedProject = ref<Project | null | undefined>(null);
+
+  const getProjects = async (): Promise<void> => {
+    const { data } = await useFetch<FetchProjectsResponse>('/api/projects');
+    projects.value = data.value?.projects;
   };
 
-  const getProjects = async () => {
-    const { data } = await useFetch('/api/projects', {
-      transform(data: Project) {
-        return data;
-      },
+  const featuredProjects = computed(() => {
+    return projects.value?.filter((project) => project.featured === true);
+  });
+
+  const getSelectedProject = (): void => {
+    selectedProject.value = projects.value?.find((project) => {
+      return project.slug === slug;
     });
-    projects.value = data;
   };
 
-  //   const featuredProjects = projects.filter(
-  //     (project) => project.featured === true
-  //   );
+  const otherFeaturedProjects = computed(() => {
+    return projects.value?.filter((project) => {
+      return project.featured === true && project.slug !== slug;
+    });
+  });
 
-  //   const selectedProject = computed(() => {
-  //     return projects.find((project) => {
-  //       return project.slug === slug;
-  //     });
-  //   });
-
-  //   const otherFeaturedProjects = computed(() => {
-  //     return projects.filter((project) => {
-  //       return project.featured === true && project.slug !== slug;
-  //     });
-  //   });
-
-  //   const otherProjects = projects.filter(
-  //     (project) => project.featured === false
-  //   );
+  const otherProjects = computed(() => {
+    return projects.value?.filter((project) => project.featured === false);
+  });
 
   return {
     projects,
     getProjects,
-    // featuredProjects,
-    // selectedProject,
-    // otherFeaturedProjects,
-    // otherProjects,
+    featuredProjects,
+    getSelectedProject,
+    selectedProject,
+    otherFeaturedProjects,
+    otherProjects,
   };
 });
 

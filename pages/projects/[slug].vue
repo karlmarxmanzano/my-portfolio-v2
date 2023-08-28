@@ -1,133 +1,34 @@
 <script setup lang="ts">
-const projects = [
-  {
-    title: 'Isuzuphil.com.ph',
-    slug: 'isuzuphil-com-ph',
-    imageUrl: '/images/isuzuphil.png',
-    description: 'Complete revamp of Isuzu Philippines website.',
-    link: 'https://www.isuzuphil.com/',
-    githubRepo: '',
-    techStack: [
-      'Laravel',
-      'OctoberCMS',
-      'MySQL',
-      'Bootstrap',
-      'SaSS',
-      'jQuery',
-      'Twig',
-    ],
-    featured: true,
-  },
-  {
-    title: 'Ritemed.com.ph',
-    slug: 'ritemed-com-ph',
-    imageUrl: '/images/ritemed.png',
-    description:
-      'Front-end enhancements of Ritemed Philippines website to provide a better user experience namely a store/medicine locator.',
-    link: 'https://www.ritemed.com.ph/',
-    githubRepo: '',
-    techStack: ['CodeIgniter', 'Bootstrap', 'SaSS'],
-    featured: true,
-  },
-  {
-    title: 'Unistar Credit and Finance Corp.',
-    slug: 'unistar-credit-and-finance-corp',
-    imageUrl: '/images/unistar.png',
-    description:
-      'Full stack development from scratch. Built a website for a financing firm to provide a fast, easy, and convenient loan operations',
-    techStack: [
-      'Laravel',
-      'OctoberCMS',
-      'MySQL',
-      'Bootstrap',
-      'SaSS',
-      'jQuery',
-      'Twig',
-    ],
-    featured: true,
-  },
-  {
-    title: 'BuhayHW.com',
-    slug: 'buhayhw-com',
-    imageUrl: '/images/buhayhw.png',
-    description:
-      'Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ',
-    link: 'https://buhayhw.com/',
-    githubRepo: '',
-    techStack: ['WordPress', 'CSS', 'MySQL'],
-    featured: true,
-  },
-  {
-    title: 'My Personal Portfolio',
-    slug: 'my-personal-portfolio',
-    imageUrl: '/images/portfolio.png',
-    description:
-      'My Personal Portfolio built with Nuxt and TailwindCSS implementing a mobile-first development. Designed and developed using the latest technologies.',
-    link: 'https://example.com/',
-    githubRepo: 'https://github.com/',
-    techStack: ['Nuxt', 'TailwindCSS', 'Pinia'],
-    featured: false,
-  },
-  {
-    title: 'Trello Clone',
-    slug: 'trello-clone',
-    imageUrl: '/images/trello-clone.png',
-    description:
-      'Basic Trello app clone using Vue - TS, Vue Composition API, Pinia for state management, and TailwindCSS.',
-    link: 'https://xenodochial-brahmagupta-453531.netlify.app/',
-    githubRepo: 'https://github.com/karlmarxmanzano/trello-clone',
-    techStack: ['Vue', 'TailwindCSS', 'Pinia'],
-    featured: false,
-  },
-  {
-    title: 'Laravel CRM',
-    slug: 'laravel-crm',
-    description:
-      'Simple CRM website to showcase TALL (Tailwind, Alpine.js, Laravel, Livewire) stack development using Laravel Filament.',
-    link: 'https://example.com/',
-    githubRepo: 'https://github.com/',
-    techStack: [
-      'TailwindCSS',
-      'Alpine',
-      'Laravel',
-      'Livewire',
-      'Laravel Filament',
-    ],
-    featured: false,
-  },
-];
+import { storeToRefs } from 'pinia';
 
-const route = useRoute();
-const slug = route.params.slug;
+const store = useProject();
+const { getSelectedProject } = store;
+const { selectedProject, otherFeaturedProjects } = storeToRefs(store);
 
-const selectedProject = projects.find((project) => project.slug === slug);
+onMounted(() => {
+  getSelectedProject();
 
-if (!selectedProject) {
-  throw new Error('An error has occured');
-}
-
-const { featured: isFeatured } = selectedProject;
-
-const otherFeaturedProjects = projects.filter(
-  (project) => project.slug !== slug && project.featured === isFeatured
-);
+  if (selectedProject === null) {
+    throw createError({ statusCode: 404, statusMessage: 'Project Not Found' });
+  }
+});
 </script>
 
 <template>
   <section
-    class="py-10 lg:py-16 lg:py-20 text-gray-900 dark:text-slate-400 dark:bg-[#0f172af9] bg-white"
+    class="py-10 lg:py-16 xl:py-20 text-gray-900 dark:text-slate-400 dark:bg-[#0f172af9] bg-white"
   >
     <AppContainer>
       <div
         class="mb-10 text-2xl font-bold text-center uppercase lg:text-xl sm:text-2xl font-primary dark:text-slate-200 text-primary"
       >
-        {{ selectedProject.title }}
+        {{ selectedProject?.title }}
       </div>
 
-      <div class="mb-7" v-if="selectedProject.imageUrl">
+      <div class="mb-7" v-if="selectedProject?.imageUrl">
         <img
-          :src="selectedProject.imageUrl"
-          :alt="selectedProject.imageUrl"
+          :src="selectedProject?.imageUrl"
+          :alt="selectedProject?.imageUrl"
           class="object-cover w-full h-full"
         />
       </div>
@@ -135,11 +36,11 @@ const otherFeaturedProjects = projects.filter(
       <div
         class="mb-6 text-sm font-secondary sm:tracking-wide dark:text-slate-200"
       >
-        {{ selectedProject.description }}
+        {{ selectedProject?.description }}
       </div>
 
       <div>
-        <div v-if="selectedProject.link">
+        <div v-if="selectedProject?.link">
           <div
             class="inline-block mb-6 text-sm font-secondary sm:tracking-wide"
           >
@@ -154,7 +55,7 @@ const otherFeaturedProjects = projects.filter(
           </NuxtLink>
         </div>
 
-        <div v-if="selectedProject.githubRepo">
+        <div v-if="selectedProject?.github">
           <div
             class="inline-block mb-6 text-sm font-secondary sm:tracking-wide"
           >
@@ -163,7 +64,7 @@ const otherFeaturedProjects = projects.filter(
           <div
             class="inline-block px-2 py-1 text-sm tracking-tight text-primary dark:text-slate-200 font-primary"
           >
-            {{ selectedProject.githubRepo }}
+            {{ selectedProject.github }}
           </div>
         </div>
       </div>
@@ -174,7 +75,7 @@ const otherFeaturedProjects = projects.filter(
         </div>
         <div class="">
           <span
-            v-for="(stack, key) in selectedProject.techStack"
+            v-for="(stack, key) in selectedProject?.techStack"
             class="inline-block px-2 py-1 mb-1 mr-2 text-xs tracking-tight rounded dark:bg-slate-800 font-primary dark:text-slate-200 text-primary bg-primary bg-opacity-10"
             :key="key"
           >
