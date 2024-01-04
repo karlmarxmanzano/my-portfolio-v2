@@ -23,7 +23,7 @@ const useProjectStore = defineStore('project', () => {
     return projects.value?.filter((project) => project.featured === true);
   });
 
-  const getSelectedProject = (): void => {
+  const getSelectedProject = (slug: string): void => {
     selectedProject.value = projects.value?.find((project) => {
       return project.slug === slug;
     });

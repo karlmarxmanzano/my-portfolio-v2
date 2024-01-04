@@ -168,7 +168,9 @@ store.$subscribe((mutation, state) => {
       responsible, and a dedicated team member.
     </p>
 
-    <ButtonCta :url="resumeUrl" class="block"> Download Resume </ButtonCta>
+    <ButtonOutline :url="resumeUrl" class="block">
+      Download Resume
+    </ButtonOutline>
   </AppSection>
 
   <!-- Featured projects -->
@@ -226,12 +228,12 @@ store.$subscribe((mutation, state) => {
       ongoing project, I'd love to hear from you.
     </p>
 
-    <ButtonCta
+    <ButtonOutline
       url="mailto:karlmarxmanzano@gmail.com"
       class="block md:max-w-fit md:mx-auto"
     >
       Say Hello
-    </ButtonCta>
+    </ButtonOutline>
   </AppSection>
 </template>
 

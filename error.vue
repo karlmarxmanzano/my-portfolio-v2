@@ -1,11 +1,10 @@
 <script setup>
-const error = useError();
-// const name = 'full';
+const props = defineProps({
+  error: Object,
+});
 
-const handleError = () => {
-  clearError({
-    redirect: '/',
-  });
+const handleError = async () => {
+  clearError();
 };
 </script>
 
@@ -16,13 +15,13 @@ const handleError = () => {
     >
       <div class="text-center">
         <div v-if="error.statusCode === 404">
-          <h1 class="text-4xl font-semibold text-white font-primary">404</h1>
+          <h1 class="block text-4xl font-semibold font-primary">404</h1>
           <p
-            class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl font-secondary"
+            class="block mt-4 text-3xl font-semibold tracking-tight sm:text-5xl font-secondary"
           >
             I guess that page doesn't exist.
           </p>
-          <p class="mt-6 text-base leading-7 text-gray-600 font-secondary">
+          <p class="block mt-6 text-base leading-7 font-secondary">
             <strong>
               {{ error.message }}
             </strong>
@@ -30,20 +29,27 @@ const handleError = () => {
         </div>
 
         <div v-else>
-          <h1 class="text-4xl font-semibold text-white font-primary">
+          <h1 class="block text-4xl font-semibold font-primary">
             {{ error }}
           </h1>
           <p
-            class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl font-secondary"
+            class="block mt-4 text-3xl font-bold tracking-tight sm:text-5xl font-secondary"
           >
             I guess that page doesn't exist.
           </p>
-          <p class="mt-6 text-base leading-7 text-gray-600 font-secondary">
+          <p class="mt-12 text-base leading-7 font-secondaryblock">
             <strong>
               {{ error.message }}
             </strong>
           </p>
         </div>
+
+        <!-- <ButtonOutline
+          class="block md:max-w-fit md:mx-auto mt-10"
+          @click="handleError"
+        >
+          Go Back to Home
+        </ButtonOutline> -->
       </div>
     </main>
   </NuxtLayout>

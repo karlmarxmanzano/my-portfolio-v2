@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
+const route = useRoute();
 
 const store = useProject();
 const { getSelectedProject } = store;
 const { selectedProject, otherFeaturedProjects } = storeToRefs(store);
 
 onMounted(() => {
-  getSelectedProject();
+  getSelectedProject(route.params.slug);
 
-  if (selectedProject === null) {
-    throw createError({ statusCode: 404, statusMessage: 'Project Not Found' });
+  if (!selectedProject.value) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Project Not Found',
+      fatal: true,
+    });
   }
 });
 </script>

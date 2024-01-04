@@ -1,3 +1,10 @@
+<script setup>
+const resetError = async (error) => {
+  await navigateTo('/');
+  error.value = null;
+};
+</script>
+
 <template>
   <div>
     <NuxtLayout>
@@ -5,7 +12,7 @@
       <NuxtErrorBoundary>
         <template #error="{ error }">
           <p>
-            Oh no, something went wrong with the lesson!
+            Oh no, something went wrong!
             <code>{{ error }}</code>
           </p>
           <p>
@@ -21,10 +28,3 @@
     </NuxtLayout>
   </div>
 </template>
-
-<script setup>
-const resetError = async (error) => {
-  await navigateTo('/');
-  error.value = null;
-};
-</script>
