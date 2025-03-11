@@ -1,6 +1,51 @@
 {
   "projects": [
     {
+      "title": "localmicrosites",
+      "slug": "localmicrosites",
+      "imageUrl": "/images/localmicrosites.png",
+      "description": "Localmicrosites builds websites for local businesses to enhance SEO, boost engagement, and improve search rankings. It also manages web application deployment to their respective servers.",
+      "link": "https://localmicrosites.com/",
+      "githubRepo": "",
+      "techStack": [
+        "Laravel",
+        "TailwindCSS",
+        "AlpineJS",
+        "Livewire",
+        "Filament",
+        "Docker"
+      ],
+      "featured": true
+    },
+    {
+      "title": "Pop Up Pros",
+      "slug": "the-pop-up-pros",
+      "imageUrl": "/images/thepopuppros.png",
+      "description": "Pop Up Pros enables pop-up shop vendors to book events in their area, helping them increase sales and expand their network.",
+      "githubRepo": "",
+      "techStack": ["Laravel", "Vue", "TailwindCSS", "MySQL"],
+      "featured": true
+    },
+    {
+      "title": "Buildovate",
+      "slug": "buildovate-crm",
+      "imageUrl": "/images/buildovate.png",
+      "description": "Buildovate is a CRM for construction companies that streamlines lead management, project tracking, contract handling, financial management, and online payments for a hassle-free experience.",
+      "githubRepo": "",
+      "techStack": [
+        "Laravel",
+        "RESTful API",
+        "PEST",
+        "TDD",
+        "DDD",
+        "MySQL",
+        "Vue",
+        "NuxtJS",
+        "Microservices"
+      ],
+      "featured": true
+    },
+    {
       "title": "Isuzuphil.com.ph",
       "slug": "isuzuphil-com-ph",
       "imageUrl": "/images/isuzuphil.png",
@@ -19,22 +64,6 @@
       "featured": true
     },
     {
-      "title": "Crowdigy",
-      "slug": "crowdigy",
-      "imageUrl": "/images/crowdigy.png",
-      "description": "Crowdigy assists startup companies in locating investors for crowdfunding their ventures.",
-      "githubRepo": "",
-      "techStack": [
-        "TailwindCSS",
-        "AlpineJS",
-        "Laravel",
-        "Livewire",
-        "Laravel Filament",
-        "MySQL"
-      ],
-      "featured": true
-    },
-    {
       "title": "Ritemed.com.ph",
       "slug": "ritemed-com-ph",
       "imageUrl": "/images/ritemed.png",
@@ -42,7 +71,7 @@
       "link": "https://www.ritemed.com.ph/",
       "githubRepo": "",
       "techStack": ["CodeIgniter", "Bootstrap", "SaSS"],
-      "featured": true
+      "featured": false
     },
     {
       "title": "Unistar Credit and Finance Corp.",
@@ -58,7 +87,7 @@
         "jQuery",
         "Twig"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "My Personal Portfolio",
