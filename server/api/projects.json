@@ -90,6 +90,16 @@
       "featured": false
     },
     {
+      "title": "BuhayHW.com",
+      "slug": "buhayhw-com",
+      "imageUrl": "/images/buhayhw.png",
+      "description": "Designed and developed an IV Therapy website for a client based in United States that provides online scheduling platform for individuals who need IV therapy. ",
+      "link": "https://buhayhw.com/",
+      "githubRepo": "",
+      "techStack": ["WordPress", "CSS", "MySQL"],
+      "featured": true
+    },
+    {
       "title": "My Personal Portfolio",
       "slug": "my-personal-portfolio",
       "imageUrl": "/images/portfolio.png",
