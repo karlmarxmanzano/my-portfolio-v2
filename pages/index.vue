@@ -4,7 +4,7 @@ import useProjectStore from '@/composables/useProject';
 import Code from '~/components/Code.vue';
 
 const resumeUrl =
-  'https://drive.google.com/file/d/15E0v5AKZ0G5nSyrONVfqQWDNQ3wGnO_o/view?usp=sharing';
+  'https://drive.google.com/file/d/1RlUlMzxdtK8vIhvCJdID2BWyxGnvGjfo/view?usp=sharing';
 
 const store = useProjectStore();
 const { getProjects } = store;
@@ -103,7 +103,6 @@ store.$subscribe((mutation, state) => {
         },
       }"
       space-between="30"
-      :auto-height="true"
     >
       <SwiperSlide v-for="(otherProject, key) in otherProjects">
         <ProjectCard :key="key" :project="otherProject"> </ProjectCard>

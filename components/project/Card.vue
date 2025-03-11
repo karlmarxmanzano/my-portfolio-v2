@@ -16,7 +16,7 @@ const { title, slug, imageUrl, description, link, github, techStack } =
 
 <template>
   <div
-    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl min-h-[310px] mb-7 sm:mb-5 lg:mb-10 dark:bg-slate-800 dark:border-slate-800 dark:shadow-slate-800"
+    class="px-6 py-5 border rounded-lg shadow cursor-pointer md:rounded-xl min-h-[310px] h-full mb-7 sm:mb-5 lg:mb-10 dark:bg-slate-800 dark:border-slate-800 dark:shadow-slate-800"
     :class="[props.dark ? 'bg-slate-200 border border-slate-200' : 'bg-white ']"
   >
     <NuxtLink :to="`/projects/${slug}`">
