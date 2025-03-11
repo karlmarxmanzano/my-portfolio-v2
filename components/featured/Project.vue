@@ -23,7 +23,6 @@ const props = withDefaults(defineProps<Props>(), {
       :class="{ '!order-2': props.reverse }"
     >
       <div class="flex items-center justify-between mb-2 mt-7 lg:mt-0 h-full">
-        TEST
         <NuxtLink
           :to="`/projects/${props.project.slug}`"
           class="font-bold tracking-tight uppercase truncate text-primary font-primary dark:text-slate-200"
