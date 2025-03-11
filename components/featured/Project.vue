@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/20/solid';
-import { Project } from 'interfaces/project';
+import { type Project } from '~/interfaces/project';
 
 interface Props {
   project: Project;

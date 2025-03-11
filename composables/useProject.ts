@@ -1,4 +1,4 @@
-import { Project } from 'interfaces/project';
+import { type Project } from '~/interfaces/project';
 import { defineStore } from 'pinia';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
